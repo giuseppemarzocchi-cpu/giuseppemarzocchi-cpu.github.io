@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giuseppe Marzocchi</title>
+  <meta name="description" content="Giuseppe Marzocchi: MBA at Columbia Business School, Private Equity Pathway. Former Production Operations Manager at Leonardo Helicopters.">
+  <style>
+    :root {
+      --columbia: #b9d9eb;
+      --columbia-soft: #e8f3f9;
+      --columbia-deep: #1d4f91;
+      --navy: #0c2340;
+      --text: #1d2b3a;
+      --muted: #52626f;
+      --line: #d6e4ec;
+      --surface: #ffffff;
+      --page: #f6fafc;
+      --radius: 14px;
+      --nav-height: 60px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 16px);
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    a { color: var(--columbia-deep); }
+
+    a:focus-visible {
+      outline: 3px solid var(--columbia-deep);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .wrap {
+      width: min(980px, 100% - 40px);
+      margin-inline: auto;
+    }
+
+    /* Navigation */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: var(--nav-height);
+    }
+
+    .brand {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav li a {
+      display: block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: var(--navy);
+      font-size: 15px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav li a:hover { background: var(--columbia-soft); }
+    .nav li a.active { background: var(--columbia); font-weight: 600; }
+
+    /* Hero */
+    .hero {
+      background: var(--columbia);
+      color: var(--navy);
+    }
+
+    .hero .wrap {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      padding-block: 56px;
+    }
+
+    .portrait {
+      flex: none;
+      width: 176px;
+      height: 176px;
+      overflow: hidden;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.3);
+      transform-origin: 50% 12%;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .tagline {
+      margin: 10px 0 20px;
+      font-size: 19px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .links a {
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--navy);
+      font-size: 15px;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .links a:hover { background: var(--columbia-soft); }
+
+    .links a.primary {
+      background: var(--navy);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .links a.primary:hover { background: var(--columbia-deep); }
+
+    /* Sections */
+    section { padding-block: 48px 8px; }
+
+    h2 {
+      margin: 0 0 20px;
+      color: var(--navy);
+      font-size: 28px;
+      letter-spacing: -.01em;
+    }
+
+    h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.35;
+    }
+
+    .tile {
+      padding: 22px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .tile p { margin: 8px 0 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+
+    .meta {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .job-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2px 20px;
+    }
+
+    .about {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .role {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .role span {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    ul.points {
+      margin: 6px 0 0;
+      padding-left: 20px;
+    }
+
+    ul.points li { margin-top: 6px; }
+
+    .label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--columbia-deep);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 56px;
+      padding-block: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (max-width: 760px) {
+      .brand { display: none; }
+      .nav .wrap { justify-content: center; }
+      .nav li a { padding: 6px 10px; font-size: 14px; }
+      .hero .wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        padding-block: 36px;
+      }
+      .portrait { width: 132px; height: 132px; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      .wrap { width: calc(100% - 32px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top">Giuseppe Marzocchi</a>
+      <ul>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#additional">Additional Info</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="portrait">
+        <img src="photo.jpg" alt="Portrait of Giuseppe Marzocchi">
+      </div>
+      <div>
+        <h1>Giuseppe Marzocchi</h1>
+        <p class="tagline">MBA, Private Equity Pathway, Columbia Business School</p>
+        <div class="links">
+          <a class="primary" href="cv.pdf">Download CV</a>
+          <a href="mailto:GMarzocchi27@gsb.columbia.edu">GMarzocchi27@gsb.columbia.edu</a>
+          <a href="tel:+13326990520">+1 (332) 699-0520</a>
+          <a href="https://www.linkedin.com/in/giuseppe-marzocchi-94397a218/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/giuseppemarzocchi-cpu" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid">
+        <article class="tile">
+          <h3>Columbia Business School</h3>
+          <div class="meta">New York, NY · 2026-2027</div>
+          <p><strong>MBA,</strong> Private Equity Pathway, May 2027</p>
+          <p><em>Member:</em> CBS Private Equity Club; Attendee, 32nd Annual Private Equity Conference (Feb 27, 2026)</p>
+        </article>
+        <article class="tile">
+          <h3>Politecnico di Milano</h3>
+          <div class="meta">Milan, Italy · 2021-2023</div>
+          <p><strong>MSc,</strong> Mechanical Engineering, December 2023</p>
+          <p><em>Minor:</em> Production Engineering, Project Management</p>
+        </article>
+        <article class="tile">
+          <h3>Federico II, University of Naples</h3>
+          <div class="meta">Naples, Italy · 2017–2021</div>
+          <p><strong>BSc,</strong> Mechanical Engineering</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="stack">
+        <article class="tile">
+          <div class="job-head">
+            <h3>Leonardo Helicopters</h3>
+            <div class="meta">Milan, Italy · 2024-2025</div>
+          </div>
+          <p class="about">International Aerospace, Defense &amp; Security industrial group</p>
+
+          <div class="role">Production Operations Manager <span>(Nov 2024 – Nov 2025)</span></div>
+          <ul class="points">
+            <li>Managed 3 key helicopter transmissions production lines with a team of 40 and 3 direct reports; increased gross productivity by 12% and reduced faulty products by 40% in 4 months</li>
+            <li>Oversaw the implementation of Leonardo’s €1.5M technology upgrade, streamlining the workflow and saving 800 production hours annually</li>
+          </ul>
+
+          <div class="role">Production Manager <span>(Mar 2024 – Nov 2024)</span></div>
+          <ul class="points">
+            <li>Led a 15-person production team overseeing 3 different technologies, contributing 16,000 annual production hours to the final assembly of approximately 300 helicopter transmissions</li>
+            <li>Oversaw the implementation of Leonardo’s €800K technology upgrade towards aerospace components, reducing production cost by 15%</li>
+            <li>Implemented a new transmission production process that eliminated non-value-added control operations, reducing lead time by one week and increasing department flexibility, resulting in 50% reduction in production stoppages</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <div class="job-head">
+            <h3>SAPA SPA</h3>
+            <div class="meta">Naples, Italy · 2021</div>
+          </div>
+          <p class="about">Specialized international supplier for the sustainable mobility sector</p>
+
+          <div class="role">Mechanical Engineer <span>(2021)</span></div>
+          <ul class="points">
+            <li>Advised CFO on the company’s M&amp;A in Estonia and Netherlands. Valued acquisition assets using comparable and intrinsic approaches for various pricing scenarios</li>
+            <li>Oversaw the €1M capital deployment for the greenfield expansion of the Arpaia plant, including 6 presses (550–2,400 tons), an overhead crane, and auxiliary infrastructure</li>
+          </ul>
+        </article>
+
+        <article class="tile">
+          <div class="job-head">
+            <h3>Angelo Affinita ETS Foundation</h3>
+            <div class="meta">Naples, Italy · 2024-present</div>
+          </div>
+          <p class="about">Foundation dedicated to social change, raising €360K annually, benefitting +1300 beneficiaries yearly</p>
+
+          <div class="role">Head of New Projects</div>
+          <ul class="points">
+            <li>Co-founded the Foundation’s “Kindness is Cool” brand, a mission-driven digital platform that showcases products from sustainable and community-based small businesses, designed to connect conscious consumers and donors in the digital age</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="additional">
+      <h2>Additional Information</h2>
+      <div class="grid two">
+        <article class="tile">
+          <span class="label">Awards</span>
+          Canoe Polo Bronze Medal Winner in the Series A, U21 men’s category
+        </article>
+        <article class="tile">
+          <span class="label">Volunteer Work</span>
+          Alfa-Clan carries out volunteer work by running a soup kitchen for the poor, providing meals and support to people in need
+        </article>
+        <article class="tile">
+          <span class="label">Languages</span>
+          Italian; English
+        </article>
+        <article class="tile">
+          <span class="label">Interests</span>
+          Travelling; Cinema; National Qualified Skier (Top 10 in National Competition)
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 Giuseppe Marzocchi</div>
+  </footer>
+
+  <script>
+    // Highlight the nav link of the section currently on screen.
+    const links = [...document.querySelectorAll('.nav li a')];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('main section').forEach((section) => observer.observe(section));
+  </script>
+</body>
+</html>
